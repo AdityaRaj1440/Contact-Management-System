@@ -1,0 +1,12 @@
+create table contacts(
+    contact_id int auto_increment primary key,
+    name varchar(50),
+    phone_number varchar(15),
+    email_address varchar(100),
+    address varchar(200)
+);
+
+pip install pandas
+pip install flask-sqlalchemy
+pip install flask
+pip install flask-cors
