@@ -14,6 +14,22 @@ from flask_cors import CORS
 app= Flask(__name__)
 
 
+def read_contacts_from_file(file_path):
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+
+    # Skip the header line
+    lines = lines[1:]
+
+    contacts = []
+    for line in lines:
+        data = line.strip().split(',', maxsplit=3)
+        name, phone_number, email_address, address = data
+        contact = Contact(name=name, phone_number=phone_number, email_address=email_address, address=address)
+        contacts.append(contact)
+
+    return contacts
+
 # Accessing the MySQL Database details
 host= os.getenv('DB_HOST')
 username= os.getenv('DB_USER')
@@ -90,4 +106,15 @@ def delete_contact(name):
     return "Done"
 
 if __name__== "__main__":
+    with app.app_context():
+            # Read contacts from the text file
+        contacts = read_contacts_from_file('./backend/samples/dummy_contacts.txt')
+
+        # Initialize the database
+        db.create_all()
+
+        # Save contacts to the database
+        for contact in contacts:
+            db.session.add(contact)
+        db.session.commit()
     app.run(debug=True, host='0.0.0.0', port=3003)
