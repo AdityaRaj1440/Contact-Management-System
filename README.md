@@ -8,8 +8,8 @@ A web application to view, add, find and delete contact information. Developed u
 
 ## Getting Started
 
-1. Clone the repository/Unzip the repo:
-2. Navigate to the backend directory inside project directory:
+1. Clone the repository/Unzip the repo
+2. Navigate to the backend directory inside project directory
 
 ### Database Setup
 
@@ -78,7 +78,7 @@ A web application to view, add, find and delete contact information. Developed u
 
          -The find_contact() function allows users to find a contact based on either name or phone number.
          -HTTP GET method is used.
-         -The search parameter is checked to know if it is a Title (Name) or a comnination of number and symbols (phone number).
+         -The search parameter is checked to know if it is a Title (Name) or a combination of number and symbols (phone number).
          -A partial search similar to SQL's "like" operator is used to fetch a list of contacts with similar name/number.
 
 5. delete_contact()
@@ -86,7 +86,7 @@ A web application to view, add, find and delete contact information. Developed u
          -The delete_contact() function allows users to delete an existing contact by its name.
          -HTTP DELETE method is used.
          -Contact.query is used to find the contact by its name.
-         -ORM tool is then used to delte the identified contact.
+         -ORM tool is then used to delete the identified contact.
          -In case of any issues like deleting a contact not existing in the table, corresponding error messages will be provided.
 
 6. Dummy Values
