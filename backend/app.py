@@ -139,7 +139,7 @@ if __name__== "__main__":
     with app.app_context():
         # Initialize the database
         db.create_all()
-        
+
         if(len(view_contacts())==0):
             # Read contacts from the text file
             contacts = read_contacts_from_file('./backend/samples/dummy_contacts.txt')
